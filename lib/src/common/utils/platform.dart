@@ -22,6 +22,14 @@ bool get isIos => defaultTargetPlatform == TargetPlatform.iOS;
 @pragma('vm:platform-const-if', !kDebugMode)
 bool get isIosApp => !kIsWeb && isIos;
 
+// ohos
+
+@pragma('vm:platform-const-if', !kDebugMode)
+bool get isOhos => defaultTargetPlatform == TargetPlatform.ohos;
+
+@pragma('vm:platform-const-if', !kDebugMode)
+bool get isOhosApp => !kIsWeb && isOhos;
+
 Future<bool> isIOSSimulator() async {
   if (kIsWeb || defaultTargetPlatform != TargetPlatform.iOS) {
     return false;
@@ -35,7 +43,8 @@ Future<bool> isIOSSimulator() async {
 @pragma('vm:platform-const-if', !kDebugMode)
 bool get isMobile =>
     defaultTargetPlatform == TargetPlatform.iOS ||
-    defaultTargetPlatform == TargetPlatform.android;
+    defaultTargetPlatform == TargetPlatform.android ||
+    defaultTargetPlatform == TargetPlatform.ohos;
 
 @pragma('vm:platform-const-if', !kDebugMode)
 bool get isMobileApp => !kIsWeb && isMobile;

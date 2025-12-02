@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 
 import '../../controller/quill_controller.dart';
 import '../../document/attribute.dart';
@@ -56,7 +57,9 @@ Future<LinkMenuAction> defaultLinkActionPickerDelegate(
     case TargetPlatform.iOS:
       return _showCupertinoLinkMenu(context, link);
     case TargetPlatform.android:
+    case TargetPlatform.ohos:
       return _showMaterialMenu(context, link);
+      
     default:
       assert(
         false,

@@ -41,6 +41,7 @@ void main() {
       for (final mobilePlatform in [
         TargetPlatform.android,
         TargetPlatform.iOS,
+        TargetPlatform.ohos,
       ]) {
         debugDefaultTargetPlatformOverride = mobilePlatform;
         expect(
