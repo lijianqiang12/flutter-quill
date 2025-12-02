@@ -780,7 +780,9 @@ class QuillRawEditorState extends EditorState
     _floatingCursorResetController = AnimationController(vsync: this);
     _floatingCursorResetController.addListener(onFloatingCursorResetTick);
 
-    if (isKeyboardOS) {
+    // On platforms without keyboard visibility support (e.g. ohos),
+    // keep updates flowing by treating the keyboard as visible.
+    if (isKeyboardOS || isOhos) {
       _keyboardVisible = true;
     } else if (!kIsWeb && isFlutterTest) {
       // treat tests like a keyboard OS
